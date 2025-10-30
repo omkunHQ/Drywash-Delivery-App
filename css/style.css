@@ -1,0 +1,244 @@
+
+/*
+ * Bootstrap 5 Overrides & Custom Styles for Rider App
+ */
+
+:root {
+  --bs-primary-rgb: 0, 123, 255; /* Match Bootstrap's default blue */
+  --bs-secondary-rgb: 108, 117, 125;
+  --bs-success-rgb: 25, 135, 84;
+  --bs-info-rgb: 13, 202, 240;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-danger-rgb: 220, 53, 69;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-dark-rgb: 33, 37, 41;
+}
+
+body {
+  margin: 0;
+  /* Header ki height (approx 56px) */
+  
+  /* Floating button (~80px) + Bottom Nav (65px) + thoda extra space (15px) */
+  padding-bottom: 160px; /* Adjust this value if needed */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f8f9fa; /* Bootstrap light gray */
+  color: #212529; /* Bootstrap default text */
+  line-height: 1.5;
+}
+
+/* Page Content Area Fade-in */
+#content-area {
+  padding: 1rem; /* Bootstrap default padding */
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* === Bottom Navigation (Custom) === */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 65px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid #dee2e6; /* Bootstrap border color */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1020; /* Ensure it's above the floating button's background */
+}
+.bottom-nav a {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-decoration: none; color: #6c757d; /* Bootstrap secondary text */
+  font-size: 12px; padding-top: 5px; text-align: center;
+}
+.bottom-nav a svg {
+     width: 1.5rem; /* 24px */
+     height: 1.5rem; /* 24px */
+     margin-bottom: 0.1rem;
+     fill: #6c757d;
+     transition: fill 0.2s;
+}
+.bottom-nav a.active {
+    color: var(--bs-primary); /* Bootstrap primary color */
+}
+.bottom-nav a.active svg {
+    fill: var(--bs-primary);
+}
+
+/* === Card Styling (Bootstrap Overrides) === */
+.card {
+  border: none; /* Remove default border */
+  border-radius: 0.75rem; /* Slightly more rounded */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Softer shadow */
+}
+.card-header {
+    border-bottom: 1px solid #dee2e6; /* Ensure header has a bottom border */
+}
+
+/* === Task/List Item Styling === */
+/* Style for list items within cards if needed */
+.task-item {
+   /* You can add specific styles here if the default card/list-group isn't enough */
+}
+
+/* === Rasta 2 (Drag-and-Drop) ke liye CSS === */
+.sortable-list .task-item {
+  cursor: grab;
+}
+.sortable-list .task-item:active {
+  cursor: grabbing;
+  background: #e9ecef; /* Lighter gray when grabbing */
+}
+/* This class is added/removed by JS when an item is being dragged */
+.dragging {
+  opacity: 0.5;
+  background: #cfe2ff; /* Light blue when dragging */
+}
+
+/* Loader */
+#loader {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #6c757d; /* Bootstrap secondary text */
+}
+
+/* Hide elements utility */
+.d-none {
+    display: none !important;
+}
+
+/* Specific Home Page Styles (If any needed beyond Bootstrap) */
+/* Example: Style the alert boxes for payment */
+#payment-info .alert {
+    font-size: 0.9rem;
+}
+#payment-info h4 {
+    font-size: 1.25rem;
+}
+
+/* Floating Action Button Container */
+.position-fixed.bottom-0 {
+    z-index: 1010; /* Slightly lower than bottom-nav */
+}
+
+/* css/style.css */
+
+/* === Route Timeline Styling (Improved Design v2) === */
+.route-timeline-container {
+  padding: 10px 0;
+}
+
+/* Style each task item */
+.route-timeline-container .task-item {
+  position: relative;
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack vertically within the item */
+  background-color: #ffffff;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  cursor: grab;
+}
+.route-timeline-container .task-item:active {
+    cursor: grabbing;
+    background: #e9ecef;
+}
+
+/* Top part: Number and Info */
+.task-item-top {
+    display: flex;
+    align-items: flex-start; /* Align number to top */
+    margin-bottom: 0.75rem; /* Space before buttons */
+}
+
+/* Task Number Circle */
+.task-item-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--bs-primary);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Task Info */
+.task-item-timeline-info {
+  flex-grow: 1;
+}
+.task-item-timeline-info h6 {
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+.task-type-badge {
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    color: white;
+}
+.task-type-pickup { background-color: var(--bs-danger); }
+.task-type-delivery { background-color: var(--bs-success); }
+
+.task-item-timeline-info p {
+  margin-bottom: 0.1rem;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+.task-item-timeline-info p i {
+    vertical-align: middle;
+}
+
+/* Bottom part: Action Buttons */
+.task-item-actions {
+    display: flex;
+    justify-content: space-between; /* Space out buttons */
+    align-items: center;
+    border-top: 1px solid #eee; /* Separator line */
+    padding-top: 0.75rem;
+    margin-top: 0.5rem; /* Add some space above the separator */
+}
+.task-item-actions .btn-group .btn {
+    font-size: 0.8rem; /* Smaller button text */
+    padding: 0.3rem 0.6rem; /* Smaller padding */
+}
+.task-item-actions .start-task-btn {
+     font-size: 0.9rem; /* Slightly larger start button */
+}
+
+/* Connecting Line */
+.route-timeline-container .task-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: calc(1rem + 35px / 2); /* Align center: Card padding + half circle width */
+  top: calc(1rem + 35px); /* Start below the number circle */
+  width: 2px;
+  height: 30px; /* Line length */
+  background-color: #ced4da;
+  transform: translateX(-50%);
+}
+
+/* Dragging state */
+.dragging {
+  opacity: 0.7;
+  border: 1px dashed var(--bs-primary);
+}
