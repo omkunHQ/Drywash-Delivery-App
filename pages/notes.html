@@ -1,0 +1,33 @@
+<h2 class="mb-3">Order History & Notes</h2>
+
+<div id="notes-list-container">
+    <div id="notes-loader" class="text-center p-5">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p class="mt-2 text-muted">Loading history...</p>
+    </div>
+    </div>
+
+<div class="modal fade" id="note-modal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title" id="note-modal-title">Add Note</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="note-task-id">
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Enter your note..." id="note-textarea" style="height: 150px"></textarea>
+                    <label for="note-textarea">Enter your note...</label>
+                </div>
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="save-note-btn">
+                     <span class="spinner-border spinner-border-sm d-none" role="status"></span>
+                     Save Note
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

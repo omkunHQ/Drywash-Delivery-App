@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Today's Route</h2>
+    <button id="save-route-btn" class="btn btn-primary">
+        <span class="spinner-border spinner-border-sm d-none me-1" role="status"></span>
+        Save Route
+    </button>
+</div>
+
+<div class="card shadow border-0">
+    <div class="card-body">
+        <p class="text-muted small">
+            Drag tasks below to set your preferred route order. You can also call, view map, or cancel tasks.
+        </p>
+        <div id="task-list-container" class="sortable-list route-timeline-container">
+            <div id="pickup-loader" class="text-center p-3">
+                <div class="spinner-border text-primary" role="status"></div>
+                <p class="mt-2 text-muted small">Loading tasks...</p>
+            </div>
+            </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cancelTaskModal" tabindex="-1" aria-labelledby="cancelTaskModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="cancelTaskModalLabel">Cancel Task #<span id="cancel-task-id-display"></span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="cancel-task-id-input">
+        <div class="mb-3">
+            <label for="cancel-reason" class="form-label small text-muted">Reason for cancellation:</label>
+            <select class="form-select" id="cancel-reason">
+                <option value="">-- Select Reason --</option>
+                <option value="Customer unreachable">Customer unreachable</option>
+                <option value="Customer refused">Customer refused</option>
+                <option value="Incorrect address">Incorrect address</option>
+                <option value="Too far / Bad route">Too far / Bad route</option>
+                 <option value="Item not ready">Item not ready (Pickup)</option>
+                <option value="Other">Other (Specify below)</option>
+            </select>
+        </div>
+        <div class="mb-3">
+             <textarea class="form-control" id="cancel-reason-other" rows="3" placeholder="Specify other reason (if selected)" style="display: none;"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" id="confirm-cancel-btn">
+            <span class="spinner-border spinner-border-sm d-none me-1" role="status"></span>
+            Confirm Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

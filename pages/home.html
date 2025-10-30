@@ -1,0 +1,102 @@
+<h2 class="mb-3">Live Task</h2>
+
+<div id="no-task-card" class="card shadow border-0 d-none">
+    <div class="card-body text-center p-5">
+        <i class="bi bi-moon-stars-fill fs-1 text-primary mb-3"></i>
+        <h3 class="card-title">No Live Task</h3>
+        <p class="text-muted">You're all caught up for now!</p>
+    </div>
+</div>
+
+<div id="task-card" class="card shadow border-0 d-none mb-3">
+    <div class="card-header bg-white py-3 border-0 d-flex justify-content-between align-items-center">
+        <h4 class="mb-0 fw-bold">
+            <span id="task-type-icon" class="me-2"><i class="bi bi-geo-alt-fill text-primary"></i></span>
+            <span id="task-type-text">Task</span>: Order <span id="order-id" class="text-primary">#...</span>
+        </h4>
+        <span id="task-status-badge" class="badge text-bg-warning">STATUS</span>
+    </div>
+
+    <div class="card-body border-bottom">
+        <h5 class="fw-bold mb-1" id="location-name">Location Name</h5>
+        <p class="text-muted mb-2 small" id="location-address">Location Address...</p>
+        <div class="d-flex justify-content-start gap-2 mb-2">
+            <a href="#" id="call-btn" class="btn btn-sm btn-outline-primary">
+                <i class="bi bi-telephone-fill me-1"></i> Call <span id="call-label">Contact</span>
+            </a>
+            <a href="#" id="map-btn" target="_blank" class="btn btn-sm btn-outline-secondary">
+                <i class="bi bi-geo-alt-fill me-1"></i> Go to Map
+            </a>
+        </div>
+        <small class="text-muted d-block" id="location-phone-display"></small>
+    </div>
+
+    <div id="payment-info" class="card-body border-top d-none">
+        <h6 class="fw-bold">Payment</h6>
+        <div id="payment-details-display" class="alert alert-secondary py-2">
+            Status: <strong id="payment-status"></strong>
+            (<span id="payment-amount"></span>)
+        </div>
+    </div>
+</div>
+
+<div id="action-buttons-container" class="d-grid gap-2 mt-3 d-none">
+
+    <button id="btn-reached" data-action="reached" class="btn btn-primary btn-lg action-button d-none">
+        <span class="spinner-border spinner-border-sm d-none me-1"></span>
+        <i class="bi bi-geo-alt-fill me-1"></i>
+        <span class="action-label">Reached Location</span>
+    </button>
+
+    <button id="btn-confirm-pickup" data-action="picked_up" class="btn btn-info btn-lg action-button d-none">
+        <span class="spinner-border spinner-border-sm d-none me-1"></span>
+        <i class="bi bi-box-seam-fill me-1"></i>
+        <span class="action-label">Confirm Pickup</span>
+    </button>
+
+    <button id="btn-delivered-paid" data-action="delivered" class="btn btn-success btn-lg action-button d-none">
+        <span class="spinner-border spinner-border-sm d-none me-1"></span>
+        <i class="bi bi-check-all me-1"></i>
+        <span class="action-label">Mark Delivered (Paid)</span>
+    </button>
+
+    <button id="btn-delivered-cod" data-action="delivered_cod" class="btn btn-danger btn-lg action-button d-none">
+        <span class="spinner-border spinner-border-sm d-none me-1"></span>
+        <i class="bi bi-currency-rupee me-1"></i>
+        <span class="action-label">Collect Cash & Mark Delivered</span>
+    </button>
+</div>
+<div class="modal fade" id="taskCompleteModal" tabindex="-1" aria-labelledby="taskCompleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-body text-center p-4">
+                
+                <div class="mb-3">
+                    <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+                </div>
+                
+                <h2 class="modal-title" id="taskCompleteModalLabel">Great Job!</h2>
+                <p class="text-muted">You completed the task perfectly.</p>
+                
+                <div id="taskSummary" class="text-center d-none mt-4">
+                    <hr>
+                    <p class="text-muted mb-2">Summary:</p>
+
+                    <div id="codSummary" class="d-none">
+                        <p class="text-muted mb-2">Amount Collected (COD):</p>
+                        <h3 class="fw-bold text-danger">₹<span id="codCollectedAmount">0.00</span></h3>
+                    </div>
+
+                    <div id="paidSummary" class="d-none">
+                        <p class="text-muted mb-2">Order was Paid Online.</p>
+                        <h3 class="fw-bold text-success">Payment Received</h3>
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-primary btn-lg w-100 mt-4" data-bs-dismiss="modal">
+                    Okay
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
